@@ -1,8 +1,10 @@
-import StartPageCards from "./../components/StartPageCards/StartPageCards";
+import { FC } from "react";
+
+import StartPageCards from "../../components/StartPageCards/StartPageCards";
 
 import { StartPageContainer } from "./StartPage.styled";
 
-const StartPage = () => {
+const StartPage: FC = () => {
   return (
     <StartPageContainer>
       <StartPageCards />

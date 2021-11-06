@@ -1,4 +1,9 @@
 import { FC } from "react";
+import { useNavigate } from "react-router";
+
+import { useStore } from "./../../store/puzzler";
+
+import Paths from "./../../const/paths";
 
 import { StartPageCardContainer } from "./StartPageCard.styled";
 
@@ -13,12 +18,22 @@ const StartPageCard: FC<StartPageCardProps> = ({
   cardImageSrc,
   cardImageAlt,
 }) => {
+  const navigate = useNavigate();
+
+  const { startGame } = useStore();
+
+  const onCardClick = () => {
+    startGame(id);
+    navigate(Paths.Game);
+  };
+
   return (
     <StartPageCardContainer
       bgSrc={cardImageSrc}
       role="image"
       aria-label={cardImageAlt}
       tabIndex={0}
+      onClick={() => onCardClick()}
     />
   );
 };

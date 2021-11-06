@@ -7,6 +7,7 @@ const GlobalStyles = createGlobalStyle`
   body {
     background-image: url(${bgPattern});
     background-attachment: fixed;
+
   }
 `;
 
