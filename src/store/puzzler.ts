@@ -1,7 +1,7 @@
 import create from "zustand";
 import uid from "uid2";
 
-import { getShuffledArr } from "../helpers/getShuffledArr";
+import { getShuffledArray } from "../helpers/getShuffledArray";
 import { getPuzzlesGrid } from "../helpers/getPuzzlesGrid";
 import { swapItems } from "../helpers/swapItems";
 import { getIndexOfItemInArray } from "../helpers/getIndexOfItemInArray";
@@ -92,7 +92,7 @@ export const useStore = create<PuzzlerStore>((set, get) => ({
 
       return {
         ...state,
-        puzzleCards: getShuffledArr(newPuzzleCards),
+        puzzleCards: getShuffledArray(newPuzzleCards),
       };
     }),
 
