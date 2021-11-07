@@ -24,13 +24,13 @@ const StartPageCard: FC<StartPageCardProps> = ({
 
   const onCardClick = () => {
     startGame(id);
-    navigate(Paths.Game);
+    navigate(Paths.Game, { replace: true });
   };
 
   return (
     <StartPageCardContainer
       bgSrc={cardImageSrc}
-      role="image"
+      role="button"
       aria-label={cardImageAlt}
       tabIndex={0}
       onClick={() => onCardClick()}

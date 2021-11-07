@@ -1,4 +1,4 @@
-import { FC, useEffect } from "react";
+import { FC, useCallback, useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router";
 
 import { useStore } from "../../store/puzzler";
@@ -12,14 +12,36 @@ import { GameCardsContainer } from "./GameCards.styled";
 const GameCards: FC = () => {
   const navigate = useNavigate();
 
-  const { puzzleCards } = useStore();
+  const {
+    puzzleCards,
+    setIndexOfChosenCard,
+    setIndexOfCardToReplace,
+    indexOfChosenCard,
+    indexOfCardToReplace,
+    setNewCards,
+  } = useStore();
+
+  const [activeCard, setActiveCard] = useState<string>("");
 
   useEffect(() => {
     if (puzzleCards.length === 0) {
-      navigate(Paths.Start);
+      navigate(Paths.Start, { replace: true });
     }
   }, []);
 
+  const onCardClick = (cardId: string) => {
+    setActiveCard(cardId);
+
+    if (indexOfChosenCard === undefined) {
+      setIndexOfChosenCard(cardId);
+    } else {
+      setIndexOfCardToReplace(cardId);
+      setNewCards();
+      setActiveCard("");
+    }
+  };
+
+  console.log(indexOfChosenCard, indexOfCardToReplace);
   console.log(puzzleCards);
 
   return (
@@ -35,6 +57,8 @@ const GameCards: FC = () => {
             bgPositionX={bgPositionX}
             bgPositionY={bgPositionY}
             bgAsset={bgAsset}
+            onCardClick={onCardClick}
+            activeCard={activeCard}
           />
         );
       })}

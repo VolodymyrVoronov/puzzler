@@ -1,5 +1,6 @@
 enum Paths {
-  Start = "/",
+  Root = "/",
+  Start = "/start",
   Game = "/game",
 }
 

@@ -8,6 +8,8 @@ interface GameCardProps {
   bgPositionX: number;
   bgPositionY: number;
   bgAsset: number;
+  onCardClick: (cardId: string) => void;
+  activeCard: string;
 }
 
 const GameCard: FC<GameCardProps> = ({
@@ -16,12 +18,19 @@ const GameCard: FC<GameCardProps> = ({
   bgPositionX,
   bgPositionY,
   bgAsset,
+  onCardClick,
+  activeCard,
 }) => {
   return (
     <GameCardContainer
+      role="button"
+      aria-label="puzzle card"
+      tabIndex={0}
       bgAsset={require(`../../assets/${bgAsset}.jpg`).default}
       bgPositionX={bgPositionX}
       bgPositionY={bgPositionY}
+      onClick={() => onCardClick(id)}
+      isActive={id === activeCard}
     />
   );
 };

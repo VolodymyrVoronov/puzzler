@@ -3,6 +3,7 @@ import uid from "uid2";
 
 import { getShuffledArr } from "../helpers/getShuffledArr";
 import { getPuzzlesGrid } from "../helpers/getPuzzlesGrid";
+import { swapItems } from "../helpers/swapItems";
 
 import startCard01 from "./../assets/1.jpg";
 import startCard02 from "./../assets/2.jpg";
@@ -29,6 +30,11 @@ interface PuzzlerStore {
   startCards: StartCard[];
   startGame: (option: number) => void;
   puzzleCards: PuzzleCard[];
+  setIndexOfChosenCard: (cardId: string) => void;
+  setIndexOfCardToReplace: (cardId: string) => void;
+  indexOfChosenCard: number | undefined;
+  indexOfCardToReplace: number | undefined;
+  setNewCards: () => any;
 }
 
 export const useStore = create<PuzzlerStore>((set, get) => ({
@@ -55,6 +61,9 @@ export const useStore = create<PuzzlerStore>((set, get) => ({
 
   puzzleCards: [],
 
+  indexOfChosenCard: undefined,
+  indexOfCardToReplace: undefined,
+
   startGame: (option: number) =>
     set((state) => {
       const amountOfPieces = 96;
@@ -74,8 +83,44 @@ export const useStore = create<PuzzlerStore>((set, get) => ({
 
       return {
         ...state,
-        // puzzleCards: getShuffledArr(newPuzzleCards),
-        puzzleCards: newPuzzleCards,
+        puzzleCards: getShuffledArr(newPuzzleCards),
+      };
+    }),
+
+  setIndexOfChosenCard: (cardId: string) =>
+    set((state) => {
+      return {
+        ...state,
+        indexOfChosenCard: state.puzzleCards.findIndex(
+          (card) => card.id === cardId
+        ),
+      };
+    }),
+
+  setIndexOfCardToReplace: (cardId: string) =>
+    set((state) => {
+      return {
+        ...state,
+        indexOfCardToReplace: state.puzzleCards.findIndex(
+          (card) => card.id === cardId
+        ),
+      };
+    }),
+
+  setNewCards: () =>
+    set((state) => {
+      const newCards = [...state.puzzleCards];
+
+      return {
+        ...state,
+        puzzleCards: swapItems(
+          state.indexOfChosenCard,
+          state.indexOfCardToReplace,
+          newCards
+        ),
+
+        indexOfChosenCard: undefined,
+        indexOfCardToReplace: undefined,
       };
     }),
 }));
