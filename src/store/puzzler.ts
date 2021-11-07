@@ -34,7 +34,7 @@ interface PuzzlerStore {
   setIndexOfCardToReplace: (cardId: string) => void;
   indexOfChosenCard: number | undefined;
   indexOfCardToReplace: number | undefined;
-  setNewCards: () => any;
+  swapCards: () => any;
 }
 
 export const useStore = create<PuzzlerStore>((set, get) => ({
@@ -107,16 +107,16 @@ export const useStore = create<PuzzlerStore>((set, get) => ({
       };
     }),
 
-  setNewCards: () =>
+  swapCards: () =>
     set((state) => {
-      const newCards = [...state.puzzleCards];
+      const newPuzzleCards = [...state.puzzleCards];
 
       return {
         ...state,
         puzzleCards: swapItems(
           state.indexOfChosenCard,
           state.indexOfCardToReplace,
-          newCards
+          newPuzzleCards
         ),
 
         indexOfChosenCard: undefined,

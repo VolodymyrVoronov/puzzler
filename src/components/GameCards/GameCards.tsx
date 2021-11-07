@@ -18,7 +18,7 @@ const GameCards: FC = () => {
     setIndexOfCardToReplace,
     indexOfChosenCard,
     indexOfCardToReplace,
-    setNewCards,
+    swapCards,
   } = useStore();
 
   const [activeCard, setActiveCard] = useState<string>("");
@@ -36,7 +36,7 @@ const GameCards: FC = () => {
       setIndexOfChosenCard(cardId);
     } else {
       setIndexOfCardToReplace(cardId);
-      setNewCards();
+      swapCards();
       setActiveCard("");
     }
   };
