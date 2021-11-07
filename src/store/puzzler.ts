@@ -43,12 +43,12 @@ export const useStore = create<PuzzlerStore>((set, get) => ({
     {
       id: 1,
       cardImageSrc: startCard01,
-      cardImageAlt: "Bridge next to the ocean.",
+      cardImageAlt: "Boat and bridge.",
     },
     {
       id: 2,
       cardImageSrc: startCard02,
-      cardImageAlt: "House and cars on the street.",
+      cardImageAlt: "House, some trees and cars on the street.",
     },
     {
       id: 3,
@@ -58,13 +58,13 @@ export const useStore = create<PuzzlerStore>((set, get) => ({
     {
       id: 4,
       cardImageSrc: startCard04,
-      cardImageAlt: "An ancient bridge.",
+      cardImageAlt: "A top off the bridge.",
     },
     { id: 5, cardImageSrc: startCard05, cardImageAlt: "Laguna and ocean." },
     {
       id: 6,
       cardImageSrc: startCard06,
-      cardImageAlt: "View on the night city.",
+      cardImageAlt: "View on the night city ans sunset.",
     },
   ],
 

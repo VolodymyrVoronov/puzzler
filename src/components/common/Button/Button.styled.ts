@@ -6,6 +6,8 @@ interface ButtonContainerProps {
 
 const ButtonContainer = styled.button<ButtonContainerProps>`
   position: absolute;
+  z-index: 100;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,8 +22,6 @@ const ButtonContainer = styled.button<ButtonContainerProps>`
   cursor: pointer;
 
   transition: 0.5s ease;
-
-  z-index: 100;
 
   ${(props) =>
     props.position === "tl" &&
