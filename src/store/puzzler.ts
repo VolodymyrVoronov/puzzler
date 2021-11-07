@@ -4,6 +4,7 @@ import uid from "uid2";
 import { getShuffledArr } from "../helpers/getShuffledArr";
 import { getPuzzlesGrid } from "../helpers/getPuzzlesGrid";
 import { swapItems } from "../helpers/swapItems";
+import { getIndexOfItemInArray } from "../helpers/getIndexOfItemInArray";
 
 import startCard01 from "./../assets/1.jpg";
 import startCard02 from "./../assets/2.jpg";
@@ -39,7 +40,11 @@ interface PuzzlerStore {
 
 export const useStore = create<PuzzlerStore>((set, get) => ({
   startCards: [
-    { id: 1, cardImageSrc: startCard01, cardImageAlt: "Bridge next to ocean." },
+    {
+      id: 1,
+      cardImageSrc: startCard01,
+      cardImageAlt: "Bridge next to the ocean.",
+    },
     {
       id: 2,
       cardImageSrc: startCard02,
@@ -48,15 +53,19 @@ export const useStore = create<PuzzlerStore>((set, get) => ({
     {
       id: 3,
       cardImageSrc: startCard03,
-      cardImageAlt: "Field.",
+      cardImageAlt: "A field.",
     },
     {
       id: 4,
       cardImageSrc: startCard04,
-      cardImageAlt: "Ancient bridge.",
+      cardImageAlt: "An ancient bridge.",
     },
     { id: 5, cardImageSrc: startCard05, cardImageAlt: "Laguna and ocean." },
-    { id: 6, cardImageSrc: startCard06, cardImageAlt: "View on night city." },
+    {
+      id: 6,
+      cardImageSrc: startCard06,
+      cardImageAlt: "View on the night city.",
+    },
   ],
 
   puzzleCards: [],
@@ -91,9 +100,7 @@ export const useStore = create<PuzzlerStore>((set, get) => ({
     set((state) => {
       return {
         ...state,
-        indexOfChosenCard: state.puzzleCards.findIndex(
-          (card) => card.id === cardId
-        ),
+        indexOfChosenCard: getIndexOfItemInArray(state.puzzleCards, cardId),
       };
     }),
 
@@ -101,9 +108,7 @@ export const useStore = create<PuzzlerStore>((set, get) => ({
     set((state) => {
       return {
         ...state,
-        indexOfCardToReplace: state.puzzleCards.findIndex(
-          (card) => card.id === cardId
-        ),
+        indexOfCardToReplace: getIndexOfItemInArray(state.puzzleCards, cardId),
       };
     }),
 
