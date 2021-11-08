@@ -14,7 +14,6 @@ interface GameCardProps {
 
 const GameCard: FC<GameCardProps> = ({
   id,
-  number,
   bgPositionX,
   bgPositionY,
   bgAsset,

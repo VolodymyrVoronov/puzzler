@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, memo, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 
 import { useStore } from "../../store/puzzler";
@@ -17,7 +17,6 @@ const GameCards: FC = () => {
     setIndexOfChosenCard,
     setIndexOfCardToReplace,
     indexOfChosenCard,
-    indexOfCardToReplace,
     swapCards,
   } = useStore();
 
@@ -41,7 +40,6 @@ const GameCards: FC = () => {
     }
   };
 
-  console.log(indexOfChosenCard, indexOfCardToReplace);
   console.log(puzzleCards);
 
   return (
@@ -66,4 +64,4 @@ const GameCards: FC = () => {
   );
 };
 
-export default GameCards;
+export default memo(GameCards);

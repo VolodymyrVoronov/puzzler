@@ -36,6 +36,8 @@ interface PuzzlerStore {
   indexOfChosenCard: number | undefined;
   indexOfCardToReplace: number | undefined;
   swapCards: () => any;
+  puzzleNumber: number | undefined;
+  isGameEnd: boolean;
 }
 
 export const useStore = create<PuzzlerStore>((set, get) => ({
@@ -73,6 +75,10 @@ export const useStore = create<PuzzlerStore>((set, get) => ({
   indexOfChosenCard: undefined,
   indexOfCardToReplace: undefined,
 
+  puzzleNumber: undefined,
+
+  isGameEnd: false,
+
   startGame: (option: number) =>
     set((state) => {
       const amountOfPieces = 96;
@@ -93,6 +99,7 @@ export const useStore = create<PuzzlerStore>((set, get) => ({
       return {
         ...state,
         puzzleCards: getShuffledArray(newPuzzleCards),
+        puzzleNumber: option,
       };
     }),
 
