@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.js": "/puzzler/static/js/main.cd06fe95.chunk.js",
+    "main.js.map": "/puzzler/static/js/main.cd06fe95.chunk.js.map",
+    "runtime-main.js": "/puzzler/static/js/runtime-main.7b8a48c3.js",
+    "runtime-main.js.map": "/puzzler/static/js/runtime-main.7b8a48c3.js.map",
+    "static/js/2.769600f9.chunk.js": "/puzzler/static/js/2.769600f9.chunk.js",
+    "static/js/2.769600f9.chunk.js.map": "/puzzler/static/js/2.769600f9.chunk.js.map",
+    "index.html": "/puzzler/index.html",
+    "static/js/2.769600f9.chunk.js.LICENSE.txt": "/puzzler/static/js/2.769600f9.chunk.js.LICENSE.txt",
+    "static/media/1.jpg": "/puzzler/static/media/1.72065b79.jpg",
+    "static/media/2.jpg": "/puzzler/static/media/2.7de0cd56.jpg",
+    "static/media/3.jpg": "/puzzler/static/media/3.6b51154c.jpg",
+    "static/media/4.jpg": "/puzzler/static/media/4.a624196f.jpg",
+    "static/media/5.jpg": "/puzzler/static/media/5.6e219af0.jpg",
+    "static/media/6.jpg": "/puzzler/static/media/6.7463986f.jpg",
+    "static/media/bg-pattern.0eba9eda.svg": "/puzzler/static/media/bg-pattern.0eba9eda.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7b8a48c3.js",
+    "static/js/2.769600f9.chunk.js",
+    "static/js/main.cd06fe95.chunk.js"
+  ]
+}
