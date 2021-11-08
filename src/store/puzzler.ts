@@ -5,6 +5,7 @@ import { getShuffledArray } from "../helpers/getShuffledArray";
 import { getPuzzlesGrid } from "../helpers/getPuzzlesGrid";
 import { swapItems } from "../helpers/swapItems";
 import { getIndexOfItemInArray } from "../helpers/getIndexOfItemInArray";
+import { checkGameEnd } from "./../helpers/checkIsGameEnd";
 
 import startCard01 from "./../assets/1.jpg";
 import startCard02 from "./../assets/2.jpg";
@@ -35,9 +36,10 @@ interface PuzzlerStore {
   setIndexOfCardToReplace: (cardId: string) => void;
   indexOfChosenCard: number | undefined;
   indexOfCardToReplace: number | undefined;
-  swapCards: () => any;
+  swapCards: () => void;
   puzzleNumber: number | undefined;
   isGameEnd: boolean;
+  checkEndGame: () => void;
 }
 
 export const useStore = create<PuzzlerStore>((set, get) => ({
@@ -100,6 +102,7 @@ export const useStore = create<PuzzlerStore>((set, get) => ({
         ...state,
         puzzleCards: getShuffledArray(newPuzzleCards),
         puzzleNumber: option,
+        isGameEnd: false,
       };
     }),
 
@@ -135,4 +138,13 @@ export const useStore = create<PuzzlerStore>((set, get) => ({
         indexOfCardToReplace: undefined,
       };
     }),
+
+  checkEndGame: () => {
+    set((state) => {
+      return {
+        ...state,
+        isGameEnd: checkGameEnd(state.puzzleCards),
+      };
+    });
+  },
 }));

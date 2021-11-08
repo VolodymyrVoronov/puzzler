@@ -18,6 +18,8 @@ const GameCards: FC = () => {
     setIndexOfCardToReplace,
     indexOfChosenCard,
     swapCards,
+    checkEndGame,
+    isGameEnd,
   } = useStore();
 
   const [activeCard, setActiveCard] = useState<string>("");
@@ -37,10 +39,9 @@ const GameCards: FC = () => {
       setIndexOfCardToReplace(cardId);
       swapCards();
       setActiveCard("");
+      checkEndGame();
     }
   };
-
-  console.log(puzzleCards);
 
   return (
     <GameCardsContainer>
@@ -57,6 +58,7 @@ const GameCards: FC = () => {
             bgAsset={bgAsset}
             onCardClick={onCardClick}
             activeCard={activeCard}
+            isGameEnd={isGameEnd}
           />
         );
       })}

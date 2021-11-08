@@ -5,6 +5,7 @@ interface GameCardContainerProps {
   bgPositionX: number;
   bgPositionY: number;
   isActive: boolean;
+  isGameEnd: boolean;
 }
 
 const activeCardAnimation = keyframes`
@@ -32,6 +33,12 @@ const GameCardContainer = styled.div<GameCardContainerProps>`
     props.isActive &&
     css`
       animation: ${activeCardAnimation} 2s infinite;
+      pointer-events: none;
+    `}
+
+  ${(props) =>
+    props.isGameEnd &&
+    css`
       pointer-events: none;
     `}
 `;

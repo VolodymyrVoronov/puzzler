@@ -10,6 +10,7 @@ interface GameCardProps {
   bgAsset: number;
   onCardClick: (cardId: string) => void;
   activeCard: string;
+  isGameEnd: boolean;
 }
 
 const GameCard: FC<GameCardProps> = ({
@@ -19,6 +20,7 @@ const GameCard: FC<GameCardProps> = ({
   bgAsset,
   onCardClick,
   activeCard,
+  isGameEnd,
 }) => {
   return (
     <GameCardContainer
@@ -30,6 +32,7 @@ const GameCard: FC<GameCardProps> = ({
       bgPositionY={bgPositionY}
       onClick={() => onCardClick(id)}
       isActive={id === activeCard}
+      isGameEnd={isGameEnd}
     />
   );
 };
