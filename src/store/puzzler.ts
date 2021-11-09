@@ -68,7 +68,7 @@ export const useStore = create<PuzzlerStore>((set, get) => ({
     {
       id: 6,
       cardImageSrc: startCard06,
-      cardImageAlt: "View on the night city ans sunset.",
+      cardImageAlt: "View on the night city and sunset.",
     },
   ],
 
